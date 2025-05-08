@@ -1,24 +1,19 @@
-# README
+Nesta aplicação conseguimos anexar arquivos .tab que são arquivos de texto configurados com uma tabulação separando cada coluna de texto, e na aplicação conseguimos importar estes arquivos, e visualizar, editar e excluir estes dados, ela também nos fornece a soma dos valores inseridos.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+🚀 Como Usar
 
-Things you may want to cover:
+Instalar as Dependências
 
-* Ruby version
+No terminal, dentro da pasta do projeto:
 
-* System dependencies
+Instale as Dependências No terminal, dentro da pasta do projeto: bundle install
 
-* Configuration
+Prepare o Banco de Dados rails db:create db:migrate
 
-* Database creation
+Execute o Servidor rails server
 
-* Database initialization
+Acesse: http://localhost:3000
 
-* How to run the test suite
+✨ Funcionalidades ✔ Normaliza os dados importados e armazena-os em um banco de dados relacional.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Feito com: Ruby 3.2.2 Rails 8.0.2 Dúvidas? Abra um problema aqui no GitHub!
