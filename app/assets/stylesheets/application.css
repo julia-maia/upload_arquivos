@@ -57,6 +57,11 @@ td {
 padding: 20px;
 }
 
-
+.btn-active {
+  color: white;
+  background-color: #007bff;  /* Cor de fundo azul para a página ativa */
+  font-weight: bold;          /* Deixa o texto em negrito */
+  border-color: #0056b3;      /* Cor da borda quando ativo */
+}
 
 

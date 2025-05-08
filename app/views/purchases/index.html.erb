@@ -37,5 +37,18 @@
     </tbody>
   </table>
 </div>
+<div class="pagination">
+    <% if @current_page > 1 %>
+      <%= link_to "← Anterior", purchases_path(page: @current_page - 1), class: "btn" %>
+    <% end %>
+
+    <% (1..@total_pages).each do |page| %>
+      <%= link_to page, purchases_path(page: page), class: (@current_page == page ? "btn btn-active" : "btn") %>
+    <% end %>
+
+    <% if @current_page < @total_pages %>
+      <%= link_to "Próxima →", purchases_path(page: @current_page + 1), class: "btn" %>
+    <% end %>
+  </div>
+</div>
 <%= render "botao_volta" %>
-  
