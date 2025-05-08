@@ -1,0 +1,62 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 400px;
+    background: white;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+  }
+
+  h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 25px;
+  }
+
+  .btn {
+    text-decoration: none;
+    margin: 25px 0px;
+    background-color: #02571c;
+    color: white;
+    padding: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: grid;
+  }
+
+  .btn-red {
+    background-color: red;
+  }
+
+  .btn-footer {
+    margin: 25px;
+    justify-content: right;
+    display: grid;
+  }
+
+
+.container-compras {
+  display: flex;
+  justify-content: center;  
+}
+
+td {
+padding: 20px;
+}
+
+
+
+

@@ -1,0 +1,14 @@
+<div class="container">
+<h1>Adicione seu arquivo</h1>
+
+<%= form_with url: imports_path, local: true, multipart: true do |form| %>
+
+    <%= form.label :file, "Insira seu arquivo abaixo" %><br><br><br>
+    <%= form.file_field :file %>
+
+    <%= form.submit "Importar", class: "btn" %>
+
+   <%= link_to "Consulta de Compras", purchases_index_path, class: "btn" %>
+
+  <% end %>
+  </div>

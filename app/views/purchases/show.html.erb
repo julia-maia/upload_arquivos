@@ -1,0 +1,24 @@
+<h1>Visualização da sua Compra</h1>
+<table>
+    <thead>
+      <tr>
+        <th>Comprador</th>
+        <th>Item</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Comerciante</th>
+        <th>Endereço</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= @purchase.purchaser.name %></td>
+          <td><%= @purchase.item.description %></td>
+          <td>R$ <%= '%.2f' % @purchase.item.price %></td>
+          <td><%= @purchase.count %></td>
+          <td><%= @purchase.item.merchant.name %></td>
+          <td><%= @purchase.item.merchant.address %></td>
+        </tr>
+    </tbody>
+  </table>
+  <%= render "botao_volta" %>

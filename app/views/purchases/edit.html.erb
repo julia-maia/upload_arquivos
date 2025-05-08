@@ -1,0 +1,22 @@
+<h1>Editar Compra</h1>
+
+<%= form_with(model: @purchase, local: true) do |form| %>
+  <div>
+    <%= form.label :purchaser_id, "Comprador" %>
+    <%= form.select :purchaser_id, Purchaser.all.collect { |p| [p.name, p.id] } %>
+  </div>
+
+  <div>
+    <%= form.label :item_id, "Item" %>
+    <%= form.select :item_id, Item.all.collect { |i| [i.description, i.id] } %>
+  </div>
+
+  <div>
+    <%= form.label :count, "Quantidade" %>
+    <%= form.number_field :count %>
+  </div>
+
+  <%= form.submit "Atualizar Compra" %>
+<% end %>
+
+<%= render "botao_volta" %>

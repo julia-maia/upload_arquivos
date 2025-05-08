@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<h1>Compras Importadas</h1>
+
+  <% if flash[:notice] %>
+    <p style="color: green; font-weight: bold;"><%= flash[:notice] %></p>
+  <% end %>
+  
+<div class="container-compras">
+  <table>
+    <thead>
+      <tr>
+        <th>Comprador</th>
+        <th>Item</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Comerciante</th>
+        <th>Endereço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @purchases.each do |purchase| %>
+        <tr>
+          <td><%= purchase.purchaser.name %></td>
+          <td><%= purchase.item.description %></td>
+          <td>R$ <%= '%.2f' % purchase.item.price %></td>
+          <td><%= purchase.count %></td>
+          <td><%= purchase.item.merchant.name %></td>
+          <td><%= purchase.item.merchant.address %></td>
+          <td>
+            <%= link_to "Visualizar", purchase_path(purchase), class: "btn btn-orange" %>
+            <%= link_to "Editar", edit_purchase_path(purchase), class: "btn" %>
+            <%= button_to "Excluir", purchase_path(purchase), method: :delete, data: { confirm: "Tem certeza que deseja excluir?" }, class: "btn btn-red" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= render "botao_volta" %>
+  
