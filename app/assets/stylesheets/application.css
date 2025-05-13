@@ -14,7 +14,6 @@ body, html {
     margin: 50px auto;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    
   }
 
   h1 {
@@ -25,11 +24,11 @@ body, html {
 
   .btn {
     text-decoration: none;
-    margin: 25px 0px;
-    background-color: #02571c;
+    margin: 2px;
+    background-color: #025457;
     color: white;
-    padding: 50px;
     width: 100%;
+    padding: 3px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -54,9 +53,54 @@ body, html {
 }
 
 td {
-padding: 20px;
+padding: 15px;
 }
 
+.btn-orange {
+  background-color: rgb(5, 131, 148);
+}
 
+.btnpag {
+  text-decoration: none;
+  margin: 10px;
+  background-color: rgb(0, 128, 128);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.btn1 {
+  text-decoration: none;
+}
 
+.btn-active {
+  text-decoration: none;
+  background-color: rgb(5, 88, 88);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnnovo {
+  text-decoration: none;
+  background-color: rgb(5, 88, 88);
+  color: white;
+  border-radius: 5px;
+  padding: 7px 7px;
+  text-align: right;
+}
+
+.containeredit {
+  max-width: 400px;
+  background: white;
+  padding: 30px;
+  margin: 50px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

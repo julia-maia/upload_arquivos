@@ -1,4 +1,4 @@
-<div class="containeredit"><h1>Editar Compra</h1>
+<div class="containeredit"><h1>Nova Compra</h1>
 
 <%= form_with(model: @purchase, local: true) do |form| %>
   <div>
@@ -15,8 +15,10 @@
     <%= form.label :count, "Quantidade" %>
     <%= form.number_field :count %>
   </div>
-
-  <%= form.submit "Atualizar Compra" %>
+<br>
+  <%= form.submit "Criar Compra", class: "btn-active" %>
 <% end %>
 </div>
-<%= render "botao_volta" %>
+<br>
+<br>
+<%= link_to "Voltar", purchases_path, class: "btn-active" %>

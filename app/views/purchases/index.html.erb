@@ -1,10 +1,12 @@
-<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 <h1>Compras Importadas</h1>
 
   <% if flash[:notice] %>
     <p style="color: green; font-weight: bold;"><%= flash[:notice] %></p>
   <% end %>
-  
+  <%= link_to "Criar Item Novo", new_purchase_path, class: "btnnovo"%>
+  <br>
+  <br>
+  <br>
 <div class="container-compras">
   <table>
     <thead>
@@ -37,5 +39,18 @@
     </tbody>
   </table>
 </div>
+<div class="pagination">
+    <% if @current_page > 1 %>
+      <%= link_to "← Anterior", purchases_path(page: @current_page - 1), class: "btnpag" %>
+    <% end %>
+
+    <% (1..@total_pages).each do |page| %>
+      <%= link_to page, purchases_path(page: page), class: (@current_page == page ? "btn-active" : "btnpag") %>
+    <% end %>
+
+    <% if @current_page < @total_pages %>
+      <%= link_to "Próxima →", purchases_path(page: @current_page + 1), class: "btnpag" %>
+    <% end %>
+  </div>
+</div>
 <%= render "botao_volta" %>
-  
