@@ -3,12 +3,15 @@ class PurchasesController < ApplicationController
     @per_page = 10  # Itens por página
     @current_page = (params[:page] || 1).to_i  # Página atual
 
-    @purchases = Purchase.includes(:purchaser, item: :merchant)
-                        .order(created_at: :desc)
-                        .offset((@current_page - 1) * @per_page)
-                        .limit(@per_page)
+    filtered = Purchase.filtered_by_purchaser(params[:purchaser_name])
 
-    total_purchases = Purchase.count
+@purchases = filtered
+               .includes(:purchaser, item: :merchant)
+               .order(created_at: :desc)
+               .offset((@current_page - 1) * @per_page)
+               .limit(@per_page)
+
+total_purchases = filtered.count
     @total_pages = (total_purchases.to_f / @per_page).ceil
   end
 
