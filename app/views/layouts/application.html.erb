@@ -19,6 +19,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <% if authenticated? %>
+      <p>Seja Bem Vindo(a) <%= Current.session.user.nome %>!</p>
+      <% else %>
+      <p>Não logado(a)</p>
+      <% end %>
+    </div>
+   <nav>
+    <%= button_to "Sair", session_path, method: :delete if authenticated?%>
+    </nav>
   </body>
+  <main> 
+  <%= yield %>
+  </main>
 </html>

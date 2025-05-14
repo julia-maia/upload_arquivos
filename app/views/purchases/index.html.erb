@@ -1,7 +1,7 @@
 <h1>Compras Importadas</h1>
 
 <%= form_with url: purchases_path, method: :get, local: true do %>
-  <label>Filtrar por Comprador:</label>
+  <label class="filtro">Filtrar por Comprador:</label>
   <%= text_field_tag :purchaser_name, params[:purchaser_name] %>
   <%= submit_tag "Buscar" %>
   <br>
