@@ -1,8 +1,11 @@
+<div class="containeredit">
 <h1>Esqueceu sua Senha?</h1>
 
 <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
 
-<%= form_with url: passwords_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Digite seu endereço de email", value: params[:email_address] %><br>
-  <%= form.submit "Instruções para redefinir a senha" %>
-<% end %>
+  <%= form_with url: passwords_path do |form| %>
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Digite seu endereço de email", value: params[:email_address] %><br>
+    <br>
+    <%= form.submit "Instruções para redefinir a senha", class: "btnnovo" %>
+  <% end %>
+</div>

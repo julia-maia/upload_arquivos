@@ -20,6 +20,7 @@ total_purchases = filtered.count
   end
 
   def create
+    
     @purchase = Purchase.new(purchase_params)
     if @purchase.save
       redirect_to @purchase, notice: "Compra criada com sucesso."

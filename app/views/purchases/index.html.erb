@@ -1,12 +1,14 @@
 <h1>Compras Importadas</h1>
 
+<div class="filtro">
 <%= form_with url: purchases_path, method: :get, local: true do %>
-  <label class="filtro">Filtrar por Comprador:</label>
+  <label>Filtrar por Comprador:</label>
   <%= text_field_tag :purchaser_name, params[:purchaser_name] %>
-  <%= submit_tag "Buscar" %>
+  <%= submit_tag "Buscar", class: "btnnovo" %>
   <br>
   <br>
 <% end %>
+</div>
   <% if flash[:notice] %>
     <p style="color: green; font-weight: bold;"><%= flash[:notice] %></p>
   <% end %>
