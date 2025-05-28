@@ -19,13 +19,6 @@
   </head>
 
   <body>
-    <div class="header">
-      <% if authenticated? %>
-      <p>Seja Bem Vindo(a) <%= Current.session.user.nome %>!</p>
-      <% else %>
-      <p>Não logado(a)</p>
-      <% end %>
-     </div>
    <nav>
     <%= button_to "Sair", session_path, method: :delete, class: "btnsair" if authenticated?%>
     </nav>

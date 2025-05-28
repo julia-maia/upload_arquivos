@@ -10,7 +10,7 @@ class ImportsController < ApplicationController
       return
     end
 
-    result = TabFileImporter.call(file)
+    result = TabFileImporter.call(file, current_user.id)
 
 
     redirect_to purchases_path, notice: "Importação concluída. Receita total: R$ #{'%.2f' % result}"

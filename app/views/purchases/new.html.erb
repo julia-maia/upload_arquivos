@@ -1,24 +1,24 @@
 <div class="containeredit"><h1>Nova Compra</h1>
 
-<%= form_with(model: @purchase, local: true) do |form| %>
-  <div>
+  <%= form_with(model: @purchase, local: true) do |form| %>
+<div>
     <%= form.label :purchaser_id, "Comprador" %>
     <%= form.select :purchaser_id, Purchaser.all.collect { |p| [p.name, p.id] } %>
-  </div>
+</div>
 
-  <div>
+<div>
     <%= form.label :item_id, "Item" %>
     <%= form.select :item_id, Item.all.collect { |i| [i.description, i.id] } %>
-  </div>
+</div>
 
-  <div>
+<div>
     <%= form.label :count, "Quantidade" %>
     <%= form.number_field :count %>
-  </div>
-<br>
+</div>
+  <br>
   <%= form.submit "Criar Compra", class: "btn-active" %>
 <% end %>
 </div>
-<br>
-<br>
-<%= link_to "Voltar", purchases_path, class: "btn-active" %>
+  <br>
+  <br>
+    <%= link_to "Voltar", purchases_path, class: "btn-active" %>
