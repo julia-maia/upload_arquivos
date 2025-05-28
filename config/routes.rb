@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :items
+  resources :purchasers
   resource :session
   resources :passwords, param: :token
   get "purchases/index"

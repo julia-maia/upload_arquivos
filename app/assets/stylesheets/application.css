@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #ffffff;
+    background-color: #ebe8e8;
     font-family: Arial, sans-serif;
     text-align: center;
   }
@@ -28,11 +28,11 @@ body, html {
     background-color: #025457;
     color: white;
     width: 100%;
-    padding: 3px;
+
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     display: grid;
   }
 
@@ -41,9 +41,18 @@ body, html {
   }
 
   .btn-footer {
-    margin: 25px;
-    justify-content: right;
-    display: grid;
+    text-decoration: none;
+    position: fixed;
+    bottom: 5px;   /* Distância do rodapé */
+    right: 5px;    /* Distância da lateral direita */
+    padding: 10px 10px;
+    color: #ffffff;
+    background-color: #025457;
+    border: none;
+   font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1000; 
   }
 
 
@@ -142,4 +151,32 @@ padding: 5px;
 
 .field {
 margin: 5px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.site {
+  background-color: #025457;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rodape {
+  background-color: #025457;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }

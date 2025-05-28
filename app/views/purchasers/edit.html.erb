@@ -1,0 +1,12 @@
+<% content_for :title, "Editing purchaser" %>
+
+<h1>Editar Cadastro de Comprador</h1>
+
+<%= render "form", purchaser: @purchaser %>
+
+<br>
+
+<div>
+  <%= link_to "Visualizar Cadastro", @purchaser %> |
+  <%= link_to "Volta a Lista de Compradores", purchasers_path %>
+</div>

@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+<div class="containeredit">
+<%= render @item %>
+
+<div>
+  <%= link_to "Editar Item", edit_item_path(@item) %> |
+  <%= link_to "Voltar a Lista de Itens", items_path %>
+  <br>
+  <br>
+</div>
+</div>

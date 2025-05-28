@@ -1,0 +1,14 @@
+<% content_for :title, "New item" %>
+<div class="containeredit">
+<h1>Cadastro de Novo Item</h1>
+
+<%= render "form", item: @item %>
+
+<br>
+
+<div>
+  <%= link_to "Lista de Itens Cadastrados", items_path, class:"btnnovo" %>
+ 
+</div>
+</div>
+ <%= link_to "Página Inicial", purchases_index_path, class:"btn-footer" %>

@@ -1,0 +1,13 @@
+<div class="containeredit"><% content_for :title, "New purchaser" %>
+
+<h1>Cadastro de Comprador</h1>
+
+<%= render "form", purchaser: @purchaser %>
+
+<br>
+
+<div>
+  <%= link_to "Lista de compradores", purchasers_path, class:"btnnovo" %>
+</div>
+  </div>
+  <%= link_to "Página Inicial", purchases_index_path, class:"btn-footer" %>

@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Items" %>
+
+<h1>Lista de Itens Cadastrados</h1>
+
+<div id="items">
+  <% @items.each do |item| %>
+  <div class="card">
+    <%= render item %>
+    <p>
+      <%= link_to "Visualizar Item", item %>
+    </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Criar Novo Item", new_item_path, class:"btnnovo" %>
+<%= link_to "Página Inicial", purchases_index_path, class:"btn-footer" %>

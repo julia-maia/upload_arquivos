@@ -19,10 +19,11 @@
   </head>
 
   <body>
+    <header class="site">
    <nav>
     <%= button_to "Sair", session_path, method: :delete, class: "btnsair" if authenticated?%>
     </nav>
-   
+   </header>
   </body>
   <main> 
   <%= yield %>
