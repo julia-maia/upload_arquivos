@@ -2,7 +2,7 @@ class PurchasersController < ApplicationController
   before_action :set_purchaser, only: %i[ show edit update destroy ]
 
   def index
-    @purchasers = Purchaser.all
+    @purchasers = current_user.purchasers
   end
 
   def show
@@ -16,7 +16,7 @@ class PurchasersController < ApplicationController
   end
 
   def create
-    @purchaser = Purchaser.new(purchaser_params)
+    @purchaser = current_user.purchasers.build(purchaser_params)
 
     respond_to do |format|
       if @purchaser.save

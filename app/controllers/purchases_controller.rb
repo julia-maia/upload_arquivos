@@ -22,6 +22,8 @@ class PurchasesController < ApplicationController
 
   def new
     @purchase = Purchase.new
+    @purchasers = current_user.purchasers
+    @items = current_user.items
   end
 
   def create

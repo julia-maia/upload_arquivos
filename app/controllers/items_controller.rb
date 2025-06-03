@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :set_item, only: [:show, :edit, :destroy]
 
   def index
-    @items = Item.all
+    @items = current_user.items
   end
 
   def show
   end
-
 
   def new
     @item = Item.new
@@ -17,47 +16,27 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.build(item_params)
 
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: "Item was successfully created." }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: "Item was successfully updated." }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    if @item.save
+      redirect_to @item, notice: 'Item criado com sucesso.'
+    else
+      render :new
     end
   end
 
   def destroy
     @item.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to items_path, status: :see_other, notice: "Item was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to items_path, status: :see_other, notice: "Item foi excluído com sucesso."
   end
 
   private
+
     def set_item
-      @item = Item.find(params.expect(:id))
+      @item = Item.find(params[:id])
     end
 
-
     def item_params
-      params.expect(item: [ :description, :price, :merchant_id ])
+      params.require(:item).permit(:description, :price, :merchant_id)
     end
 end

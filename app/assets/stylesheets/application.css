@@ -180,3 +180,19 @@ margin: 5px;
   bottom: 0;
   width: 100%;
 }
+
+.btnhome {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+
+  margin: 5px;
+  background-color: rgb(0, 128, 128);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  gap: 10px;
+}

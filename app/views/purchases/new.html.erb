@@ -3,12 +3,12 @@
   <%= form_with(model: @purchase, local: true) do |form| %>
 <div>
     <%= form.label :purchaser_id, "Comprador" %>
-    <%= form.select :purchaser_id, Purchaser.all.collect { |p| [p.name, p.id] } %>
+    <%= form.collection_select :purchaser_id, @purchasers, :id, :name, prompt: "Selecione um comprador" %>
 </div>
 
 <div>
     <%= form.label :item_id, "Item" %>
-    <%= form.select :item_id, Item.all.collect { |i| [i.description, i.id] } %>
+    <%= form.collection_select :item_id, @items, :id, :description, prompt: "Selecione um item" %>
 </div>
 
 <div>

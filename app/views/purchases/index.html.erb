@@ -1,4 +1,4 @@
-<h1>Compras Importadas</h1>
+<h1>Lista de Compras</h1>
 
 <div class="filtro">
 <%= form_with url: purchases_path, method: :get, local: true do %>
@@ -12,7 +12,7 @@
   <% if flash[:notice] %>
     <p style="color: green; font-weight: bold;"><%= flash[:notice] %></p>
   <% end %>
-  <%= link_to "Criar Item Novo", new_purchase_path, class: "btnnovo"%>
+  <%= link_to "Faça suas Compras", new_purchase_path, class: "btnnovo"%>
   <br>
   <br>
   <br>
