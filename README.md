@@ -1,19 +1,28 @@
-Nesta aplicação conseguimos anexar arquivos .tab que são arquivos de texto configurados com uma tabulação separando cada coluna de texto, e na aplicação conseguimos importar estes arquivos, e visualizar, editar e excluir estes dados, ela também nos fornece a soma dos valores inseridos.
+# Upload de Arquivos ".tab"
 
-🚀 Como Usar
+Projeto desenvolvido como parte de um desafio técnico em Ruby on Rails. A aplicação permite o upload de arquivos `.tab`, leitura e importação dos dados para um banco PostgreSQL, com funcionalidades de criação, visualização, edição e exclusão desses dados.
 
-Instalar as Dependências
+## 📦 Funcionalidades
 
-No terminal, dentro da pasta do projeto:
+- Upload de arquivos `.tab`
+- Validação simples para garantir formato correto
+- Importação e armazenamento de dados no banco
+- CRUD básico dos registros importados
+- Interface simples com Rails padrão
 
-Instale as Dependências No terminal, dentro da pasta do projeto: bundle install
+## 🚀 Tecnologias
 
-Prepare o Banco de Dados rails db:create db:migrate
+- Ruby 3.2.2  
+- Rails 8.0.2  
+- PostgreSQL  
+- Active Storage  
 
-Execute o Servidor rails server
+## ⚙️ Como rodar o projeto
 
+- Clone o repositório
+- Instale as dependências
+- Crie e configure o banco de dados
+- Inicie o servidor
 Acesse: http://localhost:3000
-
-✨ Funcionalidades ✔ Normaliza os dados importados e armazena-os em um banco de dados relacional.
 
 Feito com: Ruby 3.2.2 Rails 8.0.2 Dúvidas? Abra um problema aqui no GitHub!
