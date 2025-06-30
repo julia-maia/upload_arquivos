@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :items
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
-end
+
+  validates :email_address, presence: true
+  validates :email_address, uniqueness: { case_sensitive: false, allow_blank: true }
+  end

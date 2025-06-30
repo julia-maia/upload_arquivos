@@ -2,6 +2,8 @@ class Purchase < ApplicationRecord
   belongs_to :purchaser
   belongs_to :item
   belongs_to :user
+  
+  validates :count, presence: true
 
   def self.filtered_by_purchaser(name, user)
     scope = joins(:purchaser).where(purchasers: { user_id: user.id })
@@ -11,5 +13,4 @@ class Purchase < ApplicationRecord
     scope
   end
   
-  validates :count, presence: true, numericality: { greater_than: 0 }
 end

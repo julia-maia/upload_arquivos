@@ -1,14 +1,26 @@
-<% content_for :title, "New item" %>
+<% content_for :title, "Cadastro de Novo Item" %>
+
 <div class="containeredit">
-<h1>Cadastro de Novo Item</h1>
+  <h1>Cadastro de Novo Item</h1>
 
-<%= render "form", item: @item %>
+  <% if @item.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@item.errors.count, "erro") %> impediram o salvamento:</h2>
+      <ul class="error-list">
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<br>
+  <%= render "form", item: @item %>
 
-<div>
-  <%= link_to "Lista de Itens Cadastrados", items_path, class:"btnnovo" %>
- 
+  <br>
+
+  <div>
+    <%= link_to "Lista de Itens Cadastrados", items_path, class: "btnnovo" %>
+  </div>
 </div>
-</div>
- <%= link_to "Página Inicial", purchases_index_path, class:"btn-footer" %>
+
+<%= link_to "Página Inicial", purchases_index_path, class: "btn-footer" %>

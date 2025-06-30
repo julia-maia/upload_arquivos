@@ -1,9 +1,10 @@
 class PurchasesController < ApplicationController
-  def index
-    @per_page = 10  # Itens por página
-    @current_page = (params[:page] || 1).to_i  # Página atual
+  before_action :set_collections, only: [:new, :create, :edit, :update]
 
-    
+  def index
+    @per_page = 10
+    @current_page = (params[:page] || 1).to_i
+
     filtered = Purchase.where(user_id: current_user.id)
 
     if params[:purchaser_name].present?
@@ -22,18 +23,16 @@ class PurchasesController < ApplicationController
 
   def new
     @purchase = Purchase.new
-    @purchasers = current_user.purchasers
-    @items = current_user.items
   end
 
   def create
-    
     @purchase = Purchase.new(purchase_params)
     @purchase.user = current_user
+
     if @purchase.save
       redirect_to purchases_path, notice: "Compra criada com sucesso."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -56,13 +55,18 @@ class PurchasesController < ApplicationController
     if @purchase.update(purchase_params)
       redirect_to purchases_path, notice: "Compra atualizada com sucesso."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
-end
 
-private
+  private
 
-def purchase_params
-  params.require(:purchase).permit(:purchaser_id, :item_id, :count, :user_id)
+  def purchase_params
+    params.require(:purchase).permit(:purchaser_id, :item_id, :count)
+  end
+
+  def set_collections
+    @purchasers = current_user.purchasers
+    @items = current_user.items
+  end
 end
