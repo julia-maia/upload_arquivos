@@ -1,13 +1,37 @@
-<div class="containeredit"><% content_for :title, "New purchaser" %>
+<% content_for :title, "Cadastro de Comprador" %>
 
-<h1>Cadastro de Comprador</h1>
+<div class="container container-menu">
+  <h1>Cadastro Comprador</h1>
 
-<%= render "form", purchaser: @purchaser %>
+  <% if @purchaser.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@purchaser.errors.count, "erro") %> impediram o salvamento:</h2>
+      <ul>
+        <% @purchaser.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<br>
-
-<div>
-  <%= link_to "Lista de compradores", purchasers_path, class:"btnnovo" %>
+  <%= form_with(model: @purchaser, local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, "Nome", class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+<div class="text-center">
+    <%= form.submit "Salvar", class: "btn btn-success" %>
 </div>
-  </div>
-  <%= link_to "Página Inicial", purchases_index_path, class:"btn-footer" %>
+  <% end %>
+
+  <br>
+
+  <% if @purchaser.persisted? %>
+    <div id="<%= dom_id @purchaser %>" class="card mt-4 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title"><strong><%= @purchaser.name %></strong></h5>
+      </div>
+    </div>
+  <% end %>
+  <br>
+</div>

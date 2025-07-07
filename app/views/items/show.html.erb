@@ -1,11 +1,19 @@
-<p style="color: green"><%= notice %></p>
-<div class="containeredit">
-<%= render @item %>
+<% content_for :title, "Detalhes do Item" %>
 
-<div>
-  <%= link_to "Editar Item", edit_item_path(@item) %> |
-  <%= link_to "Voltar a Lista de Itens", items_path %>
-  <br>
-  <br>
-</div>
+<div class="container container-menu">
+  <p class="text-success"><%= notice %></p>
+
+  <h1>Detalhes do Item</h1>
+
+  <div class="card shadow-sm my-4">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Descrição:</strong> <%= @item.description %></h5>
+      <p class="card-text"><strong>Preço:</strong> <%= number_to_currency(@item.price, unit: "R$", separator: ",", delimiter: ".") %></p>
+      <p class="card-text text-muted"><strong>ID do Comerciante:</strong> <%= @item.merchant_id %></p>
+    </div>
+  </div>
+
+  <div class="d-flex gap-2">
+    <%= link_to "Editar Item", edit_item_path(@item), class: "btn btn-outline-primary" %>
+  </div>
 </div>

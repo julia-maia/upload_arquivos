@@ -1,0 +1,37 @@
+{
+  "name": "upload_arquivos",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido como parte de um desafio técnico em Ruby on Rails. A aplicação permite o upload de arquivos `.tab`, leitura e importação dos dados para um banco PostgreSQL, com funcionalidades de criação, visualização, edição e exclusão desses dados.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build:css": "yarn build:css:compile && yarn build:css:prefix",
+    "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
+    "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julia-maia/upload_arquivos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julia-maia/upload_arquivos/issues"
+  },
+  "homepage": "https://github.com/julia-maia/upload_arquivos#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.7",
+    "esbuild": "^0.25.5"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}

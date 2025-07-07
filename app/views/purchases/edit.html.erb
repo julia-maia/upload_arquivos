@@ -1,20 +1,20 @@
-<div class="containeredit"><h1>Editar Compra</h1>
+<div class="container container-menu"><h1>Editar Compra</h1>
 
 <%= form_with(model: @purchase, local: true) do |form| %>
   <div class="form-group">
     <div>
-    <%= form.label :purchaser_id, "Comprador" %>
-    <%= form.collection_select :purchaser_id, @purchasers, :id, :name, prompt: "Selecione um comprador" %>
+    <%= form.label :purchaser_id, "Comprador" , class: "form-label"%>
+    <%= form.collection_select :purchaser_id, @purchasers, :id, :name, { prompt: "Selecione um comprador" }, { class: "form-select" } %>
     </div>
 <br>
     <div>
-    <%= form.label :item_id, "Item" %>
-    <%= form.collection_select :item_id, @items, :id, :description, prompt: "Selecione um item" %>
+    <%= form.label :item_id, "Item" , class: "form-label"%>
+    <%= form.collection_select :item_id, @items, :id, :description, { prompt: "Selecione um item" }, { class: "form-select"} %>
     </div>
 <br>
     <div>
-      <%= form.label :count, "Quantidade" %>
-      <%= form.number_field :count %>
+      <%= form.label :count, "Quantidade" , class: "form-label"%>
+      <%= form.number_field :count , class: "form-control"%>
     </div>
   </div>
   <br>

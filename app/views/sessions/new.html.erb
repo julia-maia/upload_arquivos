@@ -1,16 +1,32 @@
 <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
 <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
-
-<div class="containeredit">
+<div class="container container-menu">
+  <h2>Sistema de Compras</h2>
+  <p>Faça login em sua conta</p>
+  <br>
+  <br>
   <%= form_with url: session_path do |form| %>
-    
-    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Digite seu endereço de email", value: params[:email_address], class: "form-control" %><br>
+  <div class="mb-3">
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "teste@gmail.com", value: params[:email_address], class: "form-control" %><br>
+  </div>
+  <div class="mb-3">
+    <%= form.label :password, "Senha" %>
     <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Digite sua senha", class: "form-control" %>
+  </div>
     <br>
     <br>
-    <%= form.submit "Logar", class: "btnnovo" %>
+  <div class="text-center">
+    <%= form.submit "Entrar", class: "btn btn-success" %>
+  </div>
   <% end %>
   <br>
-  <%= link_to "Criar Cadastro de Usuário", new_user_path, class: "btnnovo" %>
-  <%= link_to "Esqueceu sua Senha?", new_password_path, class: "btnnovo" %>
+  <br>
+  <br>
+  <br>
+<div class="text-center">
+  <%= link_to "Criar Cadastro de Usuário", new_user_path, class: "btn dropdown-item" %>
+  <%= link_to "Esqueceu sua Senha?", new_password_path, class: "btn dropdown-item" %>
+</div>
+</div>
 </div>

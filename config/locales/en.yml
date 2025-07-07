@@ -6,6 +6,7 @@ pt-BR:
       purchase: "Compra"
       purchaser: "Comprador"
       session: "Sessão"
+      name: "Nome"
     attributes:
       user:
         email_address: "E-mail"
@@ -21,6 +22,8 @@ pt-BR:
         purchaser_id: "Comprador"
         purchaser: "Comprador"
         user_id: "Usuário"
+      purchaser:
+        name: "Nome"
     errors:
        messages:
         blank: "não pode ficar em branco"

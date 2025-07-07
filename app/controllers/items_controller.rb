@@ -10,9 +10,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @merchants = Merchant.all
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @merchants = Merchant.all
   end
 
   def create
@@ -30,6 +33,18 @@ class ItemsController < ApplicationController
     redirect_to items_path, status: :see_other, notice: "Item foi excluído com sucesso."
   end
 
+  def update
+    respond_to do |format|
+      if @item.update(item_params)
+        format.html {redirect_to @item, notiice: "Item atualizado com sucesso!." }
+        format.json { render :show, status: :ok, location: @item }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   private
 
     def set_item

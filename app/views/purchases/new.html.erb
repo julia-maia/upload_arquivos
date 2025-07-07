@@ -1,4 +1,4 @@
-<div class="containeredit"><h1>Nova Compra</h1>
+<div class="container container-menu"><h1>Nova Compra</h1>
 <% if @purchase.errors.any? %>
   <div id="error_explanation" style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 20px;">
     <h2><%= pluralize(@purchase.errors.count, "erro") %> impediram o salvamento:</h2>
@@ -13,22 +13,24 @@
   <%= form_with(model: @purchase, local: true) do |form| %>
 <div>
     <%= form.label :purchaser_id, "Comprador" %>
-    <%= form.collection_select :purchaser_id, @purchasers, :id, :name, prompt: "Selecione um comprador" %>
+    <%= form.collection_select :purchaser_id, @purchasers, :id, :name, { prompt: "Selecione um comprador" }, { class: "form-select" }%>
 </div>
 
 <div>
     <%= form.label :item_id, "Item" %>
-    <%= form.collection_select :item_id, @items, :id, :description, prompt: "Selecione um item" %>
+    <%= form.collection_select :item_id, @items, :id, :description, { prompt: "Selecione um item" }, { class: "form-select" }%>
 </div>
 
 <div>
-    <%= form.label :count, "Quantidade" %>
-    <%= form.number_field :count %>
+    <%= form.label :count, "Quantidade" , class: "form-label" %>
+    <%= form.number_field :count , class: "form-control", min: 1, step: 1%>
 </div>
   <br>
-  <%= form.submit "Criar Compra", class: "btn-active" %>
+  <%= form.submit "Criar Compra", class: "btn btn-secondary" %>
 <% end %>
 </div>
   <br>
   <br>
-    <%= link_to "Voltar", purchases_path, class: "btn-footer" %>
+  <div class="text-center mt-3">
+    <%= link_to "Voltar", purchases_path, class: "btn btn-success" %>
+  </div>

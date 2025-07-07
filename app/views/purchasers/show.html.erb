@@ -1,9 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Detalhes do Comprador" %>
 
-<%= render @purchaser %>
+<div class="container container-menu">
+  <p class="text-success"><%= notice %></p>
 
-<div>
-  <%= link_to "Editar Cadastro", edit_purchaser_path(@purchaser) %>
-  <%= link_to "Voltar a Lista dos Compradores", purchasers_path %>
+  <h1>Infos do Comprador</h1>
 
+  <div class="card shadow-sm my-4">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Nome:</strong> <%= @purchaser.name %></h5>
+      <p class="card-text text-muted">ID: <%= @purchaser.id %></p>
+    </div>
+  </div>
+
+  <div class="d-flex gap-2">
+    <%= link_to "Editar Cadastro", edit_purchaser_path(@purchaser), class: "btn btn-outline-primary" %>
+  </div>
 </div>

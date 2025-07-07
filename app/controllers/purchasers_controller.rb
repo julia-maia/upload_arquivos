@@ -20,7 +20,7 @@ class PurchasersController < ApplicationController
 
     respond_to do |format|
       if @purchaser.save
-        format.html { redirect_to @purchaser, notice: "Purchaser was successfully created." }
+        format.html { redirect_to @purchaser, notice: "Comprador criado com sucesso!" }
         format.json { render :show, status: :created, location: @purchaser }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +32,7 @@ class PurchasersController < ApplicationController
   def update
     respond_to do |format|
       if @purchaser.update(purchaser_params)
-        format.html { redirect_to @purchaser, notice: "Purchaser was successfully updated." }
+        format.html { redirect_to @purchaser, notice: "Comprador atualizado com sucesso!." }
         format.json { render :show, status: :ok, location: @purchaser }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -1,19 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Lista de Itens Cadastrados" %>
 
-<% content_for :title, "Items" %>
+<div class="table-responsive container-compras">
+  <p class="text-success"><%= notice %></p>
 
-<h1>Lista de Itens Cadastrados</h1>
+  <h1 class="text-center">Itens Cadastrados</h1>
 
-<div id="items">
-  <% @items.each do |item| %>
-  <div class="card">
-    <%= render item %>
-    <p>
-      <%= link_to "Visualizar Item", item %>
-    </p>
-    </div>
-  <% end %>
+  <div id="items" class="row">
+    <% @items.each do |item| %>
+      <% if item.user_id == current_user.id %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= item.description %></h5>
+              <p class="card-text"><strong>Preço:</strong> <%= number_to_currency(item.price, unit: "R$", separator: ",", delimiter: ".") %></p>
+              <p class="card-text text-muted">ID do Comerciante: <%= item.merchant_id %></p>
+              <%= link_to "Visualizar Item", item, class: "btn btn-primary btn-sm" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  </div>
 </div>
-
-<%= link_to "Criar Novo Item", new_item_path, class:"btnnovo" %>
-<%= link_to "Página Inicial", purchases_index_path, class:"btn-footer" %>

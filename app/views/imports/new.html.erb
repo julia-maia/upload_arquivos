@@ -1,22 +1,15 @@
-<div class="container">
-<h1>Adicione seu arquivo</h1>
+<div class="d-flex" style="min-height: 100vh;">
+  <div class="container container-menu py-4">
+    <h2>Importar Arquivo</h2>
 
-<%= form_with url: imports_path, local: true, multipart: true do |form| %>
+    <%= form_with url: imports_path, local: true, multipart: true do |form| %>
 
-    <%= form.label :file, "Insira seu arquivo abaixo" %><br><br><br>
-    <%= form.file_field :file %>
-
-    <%= form.submit "Importar", class: "btnpag" %>
-   <br>
-   <br>
-   <%= link_to "Consulta de Compras Importadas", purchases_index_path, class: "btnpag" %>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-    <%= link_to "Cadastro de Itens", new_item_path, class: "btnhome" %>
-    <%= link_to "Cadastro do Comprador", new_purchaser_path, class: "btnhome" %>
-  <% end %>
+      <%= form.label :file, "Selecione um arquivo para importar" %><br><br><br>
+      <%= form.file_field :file %>
+      <br><br>
+    <div class="text-center mt-3">
+      <%= form.submit "Importar", class: "btn btn-secondary" %>
+    </div>
+    <% end %>
   </div>
+</div>

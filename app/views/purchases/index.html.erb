@@ -1,65 +1,81 @@
-<h1>Lista de Compras</h1>
+<div class="container my-5">
+  <h1 class="mb-4 text-center">Lista de Compras</h1>
 
-<div class="filtro">
-<%= form_with url: purchases_path, method: :get, local: true do %>
-  <label>Filtrar por Comprador:</label>
-  <%= text_field_tag :purchaser_name, params[:purchaser_name] %>
-  <%= submit_tag "Buscar", class: "btnnovo" %>
-  <br>
-  <br>
-<% end %>
-</div>
+  <div class="mb-4">
+    <%= form_with url: purchases_path, method: :get, local: true, class: "row g-2 align-items-center" do %>
+      <div class="col-auto">
+        <label for="purchaser_name" class="col-form-label">Filtrar por Comprador:</label>
+      </div>
+      <div class="col-auto">
+        <%= text_field_tag :purchaser_name, params[:purchaser_name], class: "form-control" %>
+      </div>
+      <div class="col-auto">
+        <%= submit_tag "Buscar", class: "btn btn-secondary" %>
+      </div>
+    <% end %>
+  </div>
+
   <% if flash[:notice] %>
-    <p style="color: green; font-weight: bold;"><%= flash[:notice] %></p>
+    <div class="alert alert-success text-center fw-bold">
+      <%= flash[:notice] %>
+    </div>
   <% end %>
-  <%= link_to "Faça suas Compras", new_purchase_path, class: "btnnovo"%>
-  <br>
-  <br>
-  <br>
-<div class="container-compras">
-  <table>
-    <thead>
-      <tr>
-        <th>Comprador</th>
-        <th>Item</th>
-        <th>Preço</th>
-        <th>Quantidade</th>
-        <th>Comerciante</th>
-        <th>Endereço</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @purchases.each do |purchase| %>
+
+  <div class="mb-4 text-end">
+    <%= link_to "➕ Faça suas Compras", new_purchase_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="table-responsive container-compras">
+    <table class="table table-bordered align-middle text-center">
+      <thead class="table-light">
         <tr>
-          <td><%= purchase.purchaser.name %></td>
-          <td><%= purchase.item.description %></td>
-          <td>R$ <%= '%.2f' % purchase.item.price %></td>
-          <td><%= purchase.count %></td>
-          <td><%= purchase.item.merchant.name %></td>
-          <td><%= purchase.item.merchant.address %></td>
-          <td>
-            <%= link_to "Visualizar", purchase_path(purchase), class: "btn btn-orange" %>
-            <%= link_to "Editar", edit_purchase_path(purchase), class: "btn" %>
-            <%= button_to "Excluir", purchase_path(purchase), method: :delete, data: { confirm: "Tem certeza que deseja excluir?" }, class: "btn btn-red" %>
-          </td>
+          <th>Comprador</th>
+          <th>Item</th>
+          <th>Preço</th>
+          <th>Qtd</th>
+          <th>Comerciante</th>
+          <th>Endereço</th>
+          <th>Ações</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<div class="pagination">
+      </thead>
+      <tbody>
+        <% @purchases.each do |purchase| %>
+          <tr>
+            <td><%= purchase.purchaser.name %></td>
+            <td><%= purchase.item.description %></td>
+            <td>R$ <%= number_with_precision(purchase.item.price, precision: 2) %></td>
+            <td><%= purchase.count %></td>
+            <td><%= purchase.item.merchant.name %></td>
+            <td><%= purchase.item.merchant.address %></td>
+            <td class="actions">
+              <%= link_to "Ver", purchase_path(purchase), class: "btn btn-warning btn-xs me-1" %>
+              <%= link_to "Editar", edit_purchase_path(purchase), class: "btn btn-success btn-xs me-1" %>
+              <%= button_to "Excluir", purchase_path(purchase), method: :delete,
+                  data: { confirm: "Tem certeza que deseja excluir?" },
+                  class: "btn btn-danger btn-xs" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center gap-2 mt-4 flex-wrap pagination">
     <% if @current_page > 1 %>
-      <%= link_to "← Anterior", purchases_path(page: @current_page - 1), class: "btnpag" %>
+      <%= link_to "← Anterior", purchases_path(page: @current_page - 1), class: "btn btn-outline-secondary" %>
     <% end %>
 
     <% (1..@total_pages).each do |page| %>
-      <%= link_to page, purchases_path(page: page), class: (@current_page == page ? "btn-active" : "btnpag") %>
+      <%= link_to page, purchases_path(page: page),
+          class: "btn #{'btn-primary' if @current_page == page} btn-outline-primary" %>
     <% end %>
 
     <% if @current_page < @total_pages %>
-      <%= link_to "Próxima →", purchases_path(page: @current_page + 1), class: "btnpag" %>
+      <%= link_to "Próxima →", purchases_path(page: @current_page + 1), class: "btn btn-outline-secondary" %>
     <% end %>
   </div>
+
+  <div class="mt-5 text-center">
+    <%= render "botao_volta" %>
+  </div>
 </div>
-<%= render "botao_volta" %>

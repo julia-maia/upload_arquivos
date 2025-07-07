@@ -1,7 +1,7 @@
 <% content_for :title, "Cadastro de Novo Item" %>
 
-<div class="containeredit">
-  <h1>Cadastro de Novo Item</h1>
+<div class="container container-menu">
+  <h1>Cadastro Novo Item</h1>
 
   <% if @item.errors.any? %>
     <div class="alert alert-danger">
@@ -14,13 +14,29 @@
     </div>
   <% end %>
 
-  <%= render "form", item: @item %>
+  <%= form_with(model: @item, local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_field :description, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :price, class: "form-label" %>
+      <%= form.number_field :price, class: "form-control", step: 0.01 %>
+    </div>
+
+    <div class="mb-3">
+    <%= form.label :merchant_id, "Comerciante", class: "form-label" %>
+    <%= form.collection_select :merchant_id, @merchants, :id, :name, { prompt: "Selecione um comerciante" }, { class: "form-select" } %>
+    </div>
+<div class="text-center">
+    <%= form.submit "Salvar", class: "btn btn-success" %>
+</div>
+  <% end %>
 
   <br>
 
   <div>
-    <%= link_to "Lista de Itens Cadastrados", items_path, class: "btnnovo" %>
   </div>
 </div>
 
-<%= link_to "Página Inicial", purchases_index_path, class: "btn-footer" %>

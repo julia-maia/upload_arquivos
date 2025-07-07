@@ -1,198 +1,38 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #ebe8e8;
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
+.container-menu {
+  background-color: #dbd8d8;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 380px;
+  margin-top: 100px;
+  margin-bottom: 400px;
 
-  .container {
-    max-width: 400px;
-    background: white;
-    padding: 30px;
-    margin: 50px auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-
-  h1 {
-    text-align: center;
-    color: #000000;
-    margin-bottom: 25px;
-  }
-
-  .btn {
-    text-decoration: none;
-    margin: 2px;
-    background-color: #025457;
-    color: white;
-    width: 100%;
-
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-    display: grid;
-  }
-
-  .btn-red {
-    background-color: red;
-  }
-
-  .btn-footer {
-    text-decoration: none;
-    position: fixed;
-    bottom: 5px;   /* Distância do rodapé */
-    right: 5px;    /* Distância da lateral direita */
-    padding: 10px 10px;
-    color: #ffffff;
-    background-color: #025457;
-    border: none;
-   font-size: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    z-index: 1000; 
-  }
-
-
-.container-compras {
   display: flex;
-  justify-content: center;  
-}
-
-td {
-padding: 15px;
-}
-
-.btn-orange {
-  background-color: rgb(5, 131, 148);
-}
-
-.btnpag {
-  text-decoration: none;
-  margin: 10px;
-  background-color: rgb(0, 128, 128);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn1 {
-  text-decoration: none;
-}
-
-.btn-active {
-  text-decoration: none;
-  background-color: rgb(5, 88, 88);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btnnovo {
-  text-decoration: none;
-  background-color: rgb(5, 88, 88);
-  color: white;
-  border-radius: 5px;
-  padding: 7px 7px;
-  text-align: right;
-}
-
-.containeredit {
-  max-width: 400px;
-  background: white;
-  padding: 30px;
-  margin: 50px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.filtro {
-  padding-left: 900px;
-}
-
-.header {
-padding-right: 1100px;
-font-size: 20px;
-}
-
-.btnsair {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 4px;
-  background-color: rgb(5, 88, 88);
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 15px;
-  margin: 3px;
-}
-
-.form-control {
-margin: 5px;
-border-radius: 8px;
-padding: 5px;
-}
-
-.form-group {
-  gap: 20px;
-  align-self: flex-start;
-  margin: 3px;
-}
-
-.field {
-margin: 5px;
-}
-
-.card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.site {
-  background-color: #025457;
-  color: white;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;  /* Centraliza verticalmente */
   align-items: center;
 }
 
-.rodape {
-  background-color: #025457;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+.pagination {
+display: flex;
+align-items: center;
 }
 
-.btnhome {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
+h1 {
+  font-size: 30px;
+  font-family: sans-serif;
+  padding: 5px;
+}
 
-  margin: 5px;
-  background-color: rgb(0, 128, 128);
-  color: white;
-  border: none;
-  padding: 10px;
-  font-size: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  gap: 10px;
+.btn-xs {
+  padding: 0.25rem 0.4rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
 }

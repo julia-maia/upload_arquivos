@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate_by(params.permit(:email_address, :password, :name))
       start_new_session_for user
-      redirect_to after_authentication_url
+      redirect_to new_import_path
     else
       redirect_to new_session_path, alert: "Tente outro endereço de email ou senha."
     end

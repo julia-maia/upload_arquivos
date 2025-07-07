@@ -1,19 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Lista de Compradores" %>
 
-<% content_for :title, "Purchasers" %>
+<div class="table-responsive container-compras">
+  <p class="text-success"><%= notice %></p>
 
-<h1>Lista de Compradores</h1>
+  <h1 class="text-center">Compradores Cadastrados</h1>
 
-<div id="purchasers">
-  <% @purchasers.each do |purchaser| %>
-  <div class="card">
-    <%= render purchaser %>
-    <p>
-      <%= link_to "Visualizar Cadastro", purchaser, class:"btn1" %>
-    </p>
-    </div>
-  <% end %>
+  <div id="purchasers" class="row">
+    <% @purchasers.each do |purchaser| %>
+      <% if purchaser.user_id == current_user.id %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= purchaser.name %></h5>
+              <p class="card-text text-muted">Cadastrado por você</p>
+              <%= link_to "Visualizar Cadastro", purchaser, class: "btn btn-primary btn-sm" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "Criar Novo Cadastro", new_purchaser_path, class:"btnnovo" %>
-<%= link_to "Página Inicial", purchases_index_path, class:"btn-footer" %>
