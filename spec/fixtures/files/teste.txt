@@ -1,0 +1,5 @@
+purchaser name	item description	item price	purchase count	merchant address	merchant name
+Julia Maia	R$15 off R$30 of drinks	15.0	3	321 Real Ave	Juice World
+Mariana Foren	R$50 of beauty for R$20	20.0	2	789 Dream Blvd	Glow Up Store
+Bruce Wayne	R$100 Tuxedo for R$25	25.0	1	1 Gotham Way	Wayne Fashion
+Ellen Ripley	R$40 Boots for R$10	10.0	5	42 Alien Ln	Galactic Gear

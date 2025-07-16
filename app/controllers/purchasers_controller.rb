@@ -51,11 +51,11 @@ class PurchasersController < ApplicationController
   end
 
   private
-    def set_purchaser
-      @purchaser = Purchaser.find(params.expect(:id))
-    end
-
-    def purchaser_params
-      params.expect(purchaser: [ :name ])
-    end
+  def set_purchaser
+    @purchaser = Purchaser.find(params[:id])
+  end
+  
+  def purchaser_params
+    params.require(:purchaser).permit(:name)
+  end
 end

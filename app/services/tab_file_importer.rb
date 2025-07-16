@@ -13,7 +13,6 @@ class TabFileImporter
 
   def import
     total = 0
-
     CSV.foreach(@file.path, col_sep: "\t", headers: true) do |row|
       purchaser = Purchaser.find_or_create_by(name: row["purchaser name"], user_id: @user.id)
       merchant = Merchant.find_or_create_by(name: row["merchant name"], address: row["merchant address"])

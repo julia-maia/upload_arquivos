@@ -1,7 +1,7 @@
 <div class="container container-menu"><h1>Nova Compra</h1>
+
+<div class="alert alert-danger" role="alert">
 <% if @purchase.errors.any? %>
-  <div id="error_explanation" style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 20px;">
-    <h2><%= pluralize(@purchase.errors.count, "erro") %> impediram o salvamento:</h2>
     <ul>
       <% @purchase.errors.full_messages.each do |message| %>
         <li><%= message %></li>

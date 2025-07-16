@@ -18,7 +18,7 @@ module UploadArquivo
 
     # Configuration for the application, engines, and railties goes here.
     config.i18n.default_locale = :'pt-BR'
-    config.i18n.available_locales = [:'pt-BR', :en]
+    config.i18n.available_locales = [:'pt-BR']
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

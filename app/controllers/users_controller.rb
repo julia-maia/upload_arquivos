@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
 
   def index
+    head :no_content
   end
 
   def new

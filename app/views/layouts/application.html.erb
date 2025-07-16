@@ -20,7 +20,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
- <% sidebar_excluded = controller.controller_name.in?(%w[sessions users passwords]) && controller.action_name.in?(%w[new]) %>
+ <% sidebar_excluded = !current_user || controller.controller_name.in?(%w[sessions passwords]) || (controller.controller_name == 'users' && controller.action_name.in?(%w[new create])) %>
 
 <body class="<%= sidebar_excluded ? '' : 'd-flex' %>" style="min-height: 100vh;">
   <div class="<%= sidebar_excluded ? '' : 'd-flex' %> w-100">
