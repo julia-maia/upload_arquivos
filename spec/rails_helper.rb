@@ -2,6 +2,9 @@ require 'spec_helper'
 require 'rails-controller-testing'
 Rails::Controller::Testing.install
 
+require 'simplecov'
+SimpleCov.start 'rails'
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 
