@@ -47,6 +47,12 @@
     <% end %>
 
     <main class="flex-grow-1 p-4 <%= sidebar_excluded ? 'container' : '' %>">
+      <% flash.each do |type, message| %>
+  <div class="alert alert-<%= type == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert">
+    <%= message %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
       <%= yield %>
     </main>
 
